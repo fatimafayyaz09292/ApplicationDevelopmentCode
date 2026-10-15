@@ -204,6 +204,7 @@
           .then(response => response.json())
           .then(data => {
             const cardsContainer = document.getElementById('cardsContainer');
+            cardsContainer.innerHTML = "";
       
             data.forEach((item, index) => {
               const card = document.createElement('div');
@@ -218,18 +219,18 @@
                 packageTitle = 'Luxury Travel Package';
               }
       
-              const initialBooking = index === 0 ? '' : `<p class="mb-0">Initial minimum booking: PKR ${item.initialMinimumBooking || '50,000'}</p>`;
+              const initialBooking = index === 0 ? '' : `<p class="mb-0">Initial minimum booking: ${item.initialMinimumBooking || 'PKR 50,000'}</p>`;
       
               card.innerHTML = `
                 <div class="package-item bg-white mb-2">
-                    <img class="img-fluid" src="img/package-${index + 1}.jpg" alt="${item.title}">
+                    <img class="img-fluid" src="img/package-${index + 1}.jpg" alt="${item.location}">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-3">
                             <small class="flex-fill text-center border-end py-2">
-                                <i class="fa fa-map-marker-alt text-primary me-2"></i>${item.destinations || 'Multiple Destinations'}
+                                <i class="fa fa-map-marker-alt text-primary me-2"></i>${item.location || 'Multiple Destinations'}
                             </small>
                             <small class="flex-fill text-center border-end py-2">
-                                <i class="fa fa-calendar-alt text-primary me-2"></i>${item.days || 'Flexible Days'}
+                                <i class="fa fa-calendar-alt text-primary me-2"></i>${item.duration || 'Flexible Days'}
                             </small>
                             <small class="flex-fill text-center py-2">
                                 <i class="fa fa-user text-primary me-2"></i>Per Person
@@ -237,7 +238,7 @@
                         </div>
                         <div class="text-center p-4">
                             <h3 class="mb-0">${item.amount ? `${item.amount}` : 'Unlimited Budget'}</h3>
-                            <p class="mb-0">Minimum daily budget: PKR ${item.dailyBudget || '5,000'}</p>
+                            <p class="mb-0">Minimum daily budget: ${item.dailyBudget || 'PKR 5,000'}</p>
                             ${initialBooking}
                             <div class="mb-3">
                                 <small class="fa fa-star text-primary"></small>
