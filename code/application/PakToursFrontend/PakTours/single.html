@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Customer Dashboard - PakTourism Ventures</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="PTV - Customer Dashboard" name="keywords">
+    <meta content="Customer Dashboard" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        #bookings{
+            padding: 1.2rem;
+            background-color: white;
+            margin-bottom: 1rem;
+        }
+
+        .booking-heading{
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        #confirm-booking, #cancel-booking{
+            background-color: green;
+            color: white;
+            padding: 1rem;
+            border: none;
+        }
+
+        #cancel-booking{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light pt-3 d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center">
+                        <p><i class="fa fa-envelope mr-2"></i>info@paktourism</p>
+                        <p class="text-body px-3">|</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>0315-7477258</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center text-lg-right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="m-0 text-primary"><span class="text-dark">Pak</span>Tourism</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Cost Calculator</a>
+                        <a href="package.html" class="nav-item nav-link">Travel Packages</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="blog.html" class="dropdown-item">Booking page</a>
+                                <a href="single.html" class="dropdown-item active">Dasboard</a>
+                                <a href="destination.html" class="dropdown-item">Itinerary</a>
+                                <a href="testimonial.html" class="dropdown-item">Policy page</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid page-header">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-4 text-white text-uppercase">Customer Dashboard</h3>
+                <div class="d-inline-flex text-white">
+                    <p class="m-0 text-uppercase"><a class="text-white" href="index.html">Home</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">Dashboard</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Customer Dashboard Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-3">
+                    <!-- Sidebar Start -->
+                    <div class="bg-light p-4 rounded shadow-sm">
+                        <h4 class="text-uppercase mb-4">Customer Menu</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#profile" class="text-decoration-none d-flex align-items-center py-2"><i
+                                        class="fas fa-user me-2"></i> My Profile</a></li>
+                            <li><a href="#preferences" class="text-decoration-none d-flex align-items-center py-2"><i
+                                        class="fas fa-cogs me-2"></i> Travel Preferences</a></li>
+                            <li><a href="#trips" class="text-decoration-none d-flex align-items-center py-2"><i
+                                        class="fas fa-plane-departure me-2"></i> Upcoming Trips</a></li>
+                            <li><a href="#offers" class="text-decoration-none d-flex align-items-center py-2"><i
+                                        class="fas fa-gift me-2"></i> Exclusive Offers</a></li>
+                            <li><a href="#activity" class="text-decoration-none d-flex align-items-center py-2"><i
+                                        class="fas fa-history me-2"></i> Recent Activity</a></li>
+                            <li><a href="#bookings" class="text-decoration-none d-flex align-items-center py-2"><i
+                                        class="fas fa-cogs me-2"></i>Your Bookings</a></li>
+                            <li><a href="#settings" class="text-decoration-none d-flex align-items-center py-2"><i
+                                        class="fas fa-cogs me-2"></i> Account Settings</a></li>
+
+                        </ul>
+                    </div>
+                    <!-- Sidebar End -->
+                </div>
+
+                <div class="col-lg-9">
+                    <!-- Dashboard Content Start -->
+                    <div id="profile" class="bg-white p-4 mb-4 rounded shadow-sm">
+                        <h4 class="text-uppercase mb-4">My Profile</h4>
+                        <div class="row">
+                            <!-- Profile Picture -->
+                            <div class="col-md-3 text-center text-md-left">
+                            </div>
+
+                            <!-- Profile Information -->
+                            <div class="col-md-9">
+                                <!-- Full Name, Username -->
+                                <h5 class="fw-bold" id="name">Name: </h5>
+
+                                <!-- Contact Information -->
+                                <p><strong>Email:</strong> <span id="user-email" class="text-muted"></span></p>
+                                <p><strong>Destination:</strong> <span id="destination" class="text-muted"></span></p>
+
+
+                                <!-- Editable Button to trigger editing modal or redirection -->
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal"
+                                    data-bs-target="#editProfileModal">Edit Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        function decodeJWT(token) {
+                            const base64Url = token.split('.')[1];
+
+                            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+                            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                            }).join(''));
+
+                            return JSON.parse(jsonPayload);
+                        }
+
+                        // getUserProfile
+                        document.addEventListener('DOMContentLoaded', function () {
+
+                            const token = localStorage.getItem('authToken');
+
+                            if (!token) {
+                                alert('No authentication token found. Please log in.');
+                                return;
+                            }
+
+                            const decodedToken = decodeJWT(token);
+                            const id = decodedToken.userId;
+
+                            fetch(`http://localhost:8000/api/v1/user/profile/${id}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data) {
+                                        const { name, email, destination } = data;
+
+                                        const nameElement = document.getElementById('name');
+                                        const emailElement = document.getElementById('user-email');
+                                        const destinationElement = document.getElementById('destination');
+
+                                        if (nameElement) {
+                                            nameElement.textContent = name || 'No Name Provided';
+                                        }
+                                        if (emailElement) {
+                                            emailElement.textContent = email || 'No Email Provided';
+                                        }
+                                        if (destinationElement) {
+                                            destinationElement.textContent = destination || 'No Location Provided';
+                                        }
+                                    } else {
+                                        console.error('User data not found');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching the user profile:', error);
+                                });
+                        });
+                    </script>
+
+
+
+                    <!-- Modal for Profile Edit (for demonstration) -->
+                    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="fullName" class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="fullName" value="John Doe"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Username</label>
+                                            <input type="text" class="form-control" id="username" value="johndoe_1990"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email address</label>
+                                            <input type="email" class="form-control" id="email"
+                                                value="john.doe@example.com" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Phone Number</label>
+                                            <input type="text" class="form-control" id="phone" value="+92 300 1234567"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="dob" class="form-label">Date of Birth</label>
+                                            <input type="date" class="form-control" id="dob" value="1990-01-01"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="location" class="form-label">Location</label>
+                                            <input type="text" class="form-control" id="location" value="New York, USA"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3 text-center">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Travel Preferences Section -->
+                    <div id="preferences" class="bg-white p-4 mb-4 rounded shadow-sm">
+                        <h4 class="text-uppercase mb-4">Travel Preferences</h4>
+                        <form id="preferencesForm">
+                            <div class="form-group mb-3">
+                                <label for="destination" class="form-label">Preferred Destination</label>
+                                <input type="text" class="form-control" id="destination"
+                                    placeholder="Enter your preferred destination">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="travelDates" class="form-label">Preferred Travel Dates</label>
+                                <input type="text" class="form-control" id="travelDates"
+                                    placeholder="Select travel dates">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="travelType" class="form-label">Travel Type</label>
+                                <select class="form-select" id="travelType">
+                                    <option>Adventure</option>
+                                    <option>Beach</option>
+                                    <option>Cultural</option>
+                                    <option>Luxury</option>
+                                    <option>Basic</option>
+                                    <option>Premium</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success mt-3">Save Preferences</button>
+                        </form>
+                    </div>
+
+                    <script>
+                        function decodeJWT(token) {
+                            const base64Url = token.split('.')[1];
+
+                            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+                            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                            }).join(''));
+
+                            return JSON.parse(jsonPayload);
+                        }
+
+                        document.addEventListener('DOMContentLoaded', function () {
+
+                            const token = localStorage.getItem('authToken');
+
+                            if (!token) {
+                                alert('No authentication token found. Please log in.');
+                                return;
+                            }
+
+                            const decodedToken = decodeJWT(token);
+                            const id = decodedToken.userId;
+
+                            const preferencesForm = document.getElementById('preferencesForm');
+
+                            preferencesForm.addEventListener('submit', function (event) {
+                                event.preventDefault();  // Prevent form submission
+
+                                // Get the form data
+                                const destination = document.getElementById('destination').value;
+                                const travelDates = document.getElementById('travelDates').value;
+                                const travelType = document.getElementById('travelType').value;
+
+                                // Prepare the payload
+                                const payload = {
+                                    preferredDestination: destination,
+                                    preferredTravelDates: travelDates,
+                                    travelType: travelType
+                                };
+
+                                fetch(`http://localhost:8000/api/v1/user/profile/${id}`, {
+                                    method: 'PATCH',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': `Bearer ${token}`
+                                    },
+                                    body: JSON.stringify(payload)
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        console.log('Preferences updated:', data);
+                                        alert('Your preferences have been updated successfully!');
+                                    })
+                                    .catch(error => {
+                                        console.error('Error updating preferences:', error);
+                                        alert('There was an error updating your preferences. Please try again.');
+                                    });
+                            })
+                        })
+                    </script>
+
+                    <!-- Upcoming Trips Section -->
+                    <div id="trips" class="bg-white p-4 mb-4 rounded shadow-sm">
+                        <h4 class="text-uppercase mb-4">Upcoming Trips</h4>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Destination</th>
+                                    <th>Dates</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Paris, France</td>
+                                    <td>March 20 - March 30, 2024</td>
+                                    <td><span class="badge bg-success">Confirmed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Tokyo, Japan</td>
+                                    <td>July 10 - July 20, 2024</td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Exclusive Offers Section -->
+                    <div id="offers" class="bg-white p-4 mb-4 rounded shadow-sm">
+                        <h4 class="text-uppercase mb-4">Exclusive Offers</h4>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">20% Off on European Tours</h5>
+                                        <p class="card-text">Book now and save 20% on all European tours.</p>
+                                        <a href="#" class="btn btn-primary">View Offer</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Early Bird Special</h5>
+                                        <p class="card-text">Book your vacation early and get exclusive discounts.</p>
+                                        <a href="#" class="btn btn-primary">View Offer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="bookings">
+                        <h4 class="booking-heading">My Bookings</h4>
+                        <div id="bookings-list"></div>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const token = localStorage.getItem('authToken');
+                    
+                            if (!token) {
+                                alert('No authentication token found. Please log in.');
+                                return;
+                            }
+                    
+                            const decodedToken = decodeJWT(token);
+                            const userId = decodedToken.userId;
+                    
+                            fetch('http://localhost:8000/api/v1/booking', {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${token}`,
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                const bookingsListContainer = document.getElementById('bookings-list');
+                                
+                                // Clear the existing content before adding new data
+                                bookingsListContainer.innerHTML = '';
+                                
+                                // Loop through each booking and display the required fields
+                                data.forEach(booking => {
+                                    const bookingElement = document.createElement('div');
+                                    bookingElement.classList.add('booking-item');
+                    
+                                    bookingElement.innerHTML = `
+                                        <p><strong>Package:</strong> ${booking.packag}</p>
+                                        <p><strong>Destination:</strong> ${booking.destination}</p>
+                                        <p><strong>Departure Date:</strong> ${booking.departureDate}</p>
+                                        <p><strong>Return Date:</strong> ${booking.returnDate}</p>
+                                        <p><strong>Daily Budget:</strong> ${booking.dailyBudget}</p>
+                                        <p><strong>Initial Booking Amount:</strong> ${booking.initialBookingAmount}</p>
+                                        <p><strong>Service Fees:</strong> ${booking.serviceFees}</p>
+                                        <p><strong>Status:</strong> ${booking.status}</p>
+                                        <button class='confirm-booking' data-booking-id='${booking.id}'>Confirm Booking</button>
+                                        <button class='cancel-booking' data-booking-id='${booking.id}'>Cancel Booking</button>
+                                        <hr>
+                                    `;
+                    
+                                    bookingsListContainer.appendChild(bookingElement);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Error fetching bookings:', error);
+                                alert('There was an error fetching your bookings. Please try again.');
+                            });
+                        });
+                    
+                        function decodeJWT(token) {
+                            const base64Url = token.split('.')[1];
+                            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                            }).join(''));
+                            return JSON.parse(jsonPayload);
+                        }
+                    </script> 
+                    
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const token = localStorage.getItem('authToken');
+                    
+                            if (!token) {
+                                alert('No authentication token found. Please log in.');
+                                return;
+                            }
+                    
+                            const decodedToken = decodeJWT(token);
+                            const userId = decodedToken.userId;
+                    
+                            fetch('http://localhost:8000/api/v1/booking', {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${token}`,
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                const bookingsListContainer = document.getElementById('bookings-list');
+                                bookingsListContainer.innerHTML = '';  // Clear existing content
+                    
+                                // Display each booking dynamically
+                                data.forEach(booking => {
+                                    const bookingElement = document.createElement('div');
+                                    bookingElement.classList.add('booking-item');
+                    
+                                    // Assign bookingId to data attribute
+                                    bookingElement.innerHTML = `
+                                        <p><strong>Package:</strong> ${booking.packag}</p>
+                                        <p><strong>Destination:</strong> ${booking.destination}</p>
+                                        <p><strong>Departure Date:</strong> ${booking.departureDate}</p>
+                                        <p><strong>Return Date:</strong> ${booking.returnDate}</p>
+                                        <p><strong>Daily Budget:</strong> ${booking.dailyBudget}</p>
+                                        <p><strong>Initial Booking Amount:</strong> ${booking.initialBookingAmount}</p>
+                                        <p><strong>Service Fees:</strong> ${booking.serviceFees}</p>
+                                        <p><strong>Status:</strong> ${booking.status}</p>
+                                        <button id='confirm-booking' data-booking-id='${booking.id}'>Confirm Booking</button>
+                                        <button id='cancel-booking' data-booking-id='${booking.id}'>Cancel Booking</button>
+                                        <hr>
+                                    `;
+                    
+                                    bookingsListContainer.appendChild(bookingElement);
+                                });
+                    
+                                // Attach event listener for confirm buttons dynamically
+                                document.querySelectorAll('#confirm-booking').forEach(button => {
+                                    button.addEventListener('click', function() {
+                                        const bookingId = button.getAttribute('data-booking-id');
+                                        confirmBooking(bookingId, token, userId);
+                                    });
+                                });
+                                document.querySelectorAll('#cancel-booking').forEach(button => {
+                                    button.addEventListener('click', function() {
+                                        const bookingId = button.getAttribute('data-booking-id');
+                                        cancelBooking(bookingId, token, userId);
+                                    });
+                                });
+
+                            })
+                            .catch(error => {
+                                console.error('Error fetching bookings:', error);
+                                alert('There was an error fetching your bookings. Please try again.');
+                            });
+
+                            
+
+                            
+                        });
+                    
+                        function decodeJWT(token) {
+                            const base64Url = token.split('.')[1];
+                            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                            }).join(''));
+                            return JSON.parse(jsonPayload);
+                        }
+                    
+                        // Function to confirm booking by ID
+                        function confirmBooking(id, token, userId) {
+                            const payload = {
+                                status: "Confirmed",
+                                userId: userId
+                            };
+                    
+                            fetch(`http://localhost:8000/api/v1/booking/${id}`, {
+                                method: 'PATCH',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${token}`
+                                },
+                                body: JSON.stringify(payload)
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log("Booking updated successfully:", data);
+                                alert("Booking has been confirmed successfully!");
+                            })
+                            .catch(error => {
+                                console.error("Error updating booking:", error);
+                                alert("There was an error confirming the booking. Please try again.");
+                            });
+                        }
+
+                         // Function to confirm booking by ID
+                         function cancelBooking(id, token, userId) {
+                            const payload = {
+                                status: "Cancelled",
+                                userId: userId
+                            };
+                    
+                            fetch(`http://localhost:8000/api/v1/booking/${id}`, {
+                                method: 'PATCH',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${token}`
+                                },
+                                body: JSON.stringify(payload)
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log("Booking updated successfully:", data);
+                                alert("Booking has been cancelled successfully!");
+                            })
+                            .catch(error => {
+                                console.error("Error updating booking:", error);
+                                alert("There was an error cancelling the booking. Please try again.");
+                            });
+                        }
+                    </script>
+                    
+
+                    <!-- Recent Activity Section -->
+                    <div id="activity" class="bg-white p-4 mb-4 rounded shadow-sm">
+                        <h4 class="text-uppercase mb-4">Recent Activity</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Booked trip to Paris
+                                <span class="badge bg-success">Completed</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Added travel preference: Beach
+                                <span class="badge bg-primary">Updated</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Account Settings Section -->
+                    <div id="settings" class="bg-white p-4 mb-4 rounded shadow-sm">
+                        <h4 class="text-uppercase mb-4">Account Settings</h4>
+
+                        <!-- Change Email Section -->
+                        <div class="mb-3">
+                            <form id="change-email-form">
+                                <label for="email" class="form-label"><strong>Change Email Address</strong></label>
+                                <input type="email" class="form-control" id="change-email" value="john.doe@example.com">
+                                <small class="form-text text-muted">You can update your email address here.</small>
+                                <button class="btn btn-outline-primary mt-2">Edit Email</button>
+                            </form>
+                        </div>
+
+                        <!-- Change Password Section -->
+                        <div class="mb-3">
+                            <form id="change-password-form">
+                                <label for="password" class="form-label"><strong>Change Password</strong></label>
+                                <input type="password" class="form-control" id="password" value="********">
+                                <small class="form-text text-muted">You can update your password here.</small>
+                                <button class="btn btn-outline-primary mt-2">Change Password</button>
+                            </form>
+                        </div>
+
+                        <!-- Email Preferences -->
+                        <div class="mb-3">
+                            <label for="emailPreferences" class="form-label"><strong>Email
+                                    Notifications</strong></label>
+                            <select class="form-select" id="emailPreferences">
+                                <option selected>All Notifications</option>
+                                <option>Only Important Notifications</option>
+                                <option>None</option>
+                            </select>
+                            <small class="form-text text-muted">Choose your preferred email notification
+                                settings.</small>
+                        </div>
+
+                        <!-- Account Deletion / Deactivation -->
+                        <div class="mb-3">
+                            <h5 class="text-danger"><strong>Danger Zone</strong></h5>
+                            <p>If you're sure you want to delete your account, you can do so below. This action is
+                                irreversible.</p>
+                            <button id="delete-account" class="btn btn-outline-danger mt-2" data-bs-toggle="modal"
+                                data-bs-target="#deleteAccountModal">Delete Account</button>
+                        </div>
+
+                        <!-- Log Out Button -->
+                        <button id="logout" class="btn btn-danger mt-3" data-bs-toggle="modal"
+                            data-bs-target="#logoutModal">Log
+                            Out</button>
+                    </div>
+
+                    <!-- Logout Confirmation Modal -->
+                    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to log out? Your current session will be closed.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-danger">Log Out</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Deletion Confirmation Modal -->
+                    <div class="modal fade" id="deleteAccountModal" tabindex="-1"
+                        aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteAccountModalLabel">Delete Your Account</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Deleting your account will permanently remove all your data. Are you sure you want
+                                    to proceed?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-danger">Delete Account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dashboard Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Customer Dashboard End -->
+
+    <script>
+               function decodeJWT(token) {
+            const base64Url = token.split('.')[1];
+
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                alert('No authentication token found. Please log in.');
+                return;
+            }
+
+            const decodedToken = decodeJWT(token);
+            const id = decodedToken.userId;
+
+            const emailForm = document.getElementById('change-email-form');
+
+            emailForm.addEventListener('click', function (event) {
+            })
+
+        })
+    </script>
+
+    <script>
+        function decodeJWT(token) {
+            const base64Url = token.split('.')[1];
+
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                alert('No authentication token found. Please log in.');
+                return;
+            }
+
+            const decodedToken = decodeJWT(token);
+            const id = decodedToken.userId;
+
+            const emailForm = document.getElementById('change-email-form');
+
+            emailForm.addEventListener('submit', function (event) {
+                event.preventDefault();  // Prevent form submission
+
+                // Get the form data
+                const changedEmail = document.getElementById('change-email').value;
+                // Prepare the payload
+                const payload = {
+                    email: changedEmail
+                };
+
+                fetch(`http://localhost:8000/api/v1/user/profile/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('email updated:', data);
+                        alert('Your email changed successfully!');
+                    })
+                    .catch(error => {
+                        console.error('Error updating email:', error);
+                        alert('There was an error updating your email. Please try again.');
+                    });
+            })
+        })
+    </script>
+
+    <script>
+        function decodeJWT(token) {
+            const base64Url = token.split('.')[1];
+
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                alert('No authentication token found. Please log in.');
+                return;
+            }
+
+            const decodedToken = decodeJWT(token);
+            const id = decodedToken.userId;
+
+            const passwordForm = document.getElementById('change-password-form');
+
+            passwordForm.addEventListener('submit', function (event) {
+                event.preventDefault();  // Prevent form submission
+
+                // Get the form data
+                const changedPassword = document.getElementById('password').value;
+                // Prepare the payload
+                const payload = {
+                    password: changedPassword
+                };
+
+                fetch(`http://localhost:8000/api/v1/user/profile/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Password updated:', data);
+                        alert('Your password changed successfully!');
+                    })
+                    .catch(error => {
+                        console.error('Error updating password:', error);
+                        alert('There was an error updating your password. Please try again.');
+                    });
+            })
+        })
+    </script>
+
+    <script>
+        document.getElementById('logout').addEventListener('click', () => {
+            try {
+                localStorage.removeItem('authToken');
+                console.log("Logged out successfully")
+                alert("Logged out Successfully")
+            } catch (error) {
+                console.log("Error in logging out", error)
+                alert("Something went wrong in logging out")
+            }
+        })
+    </script>
+
+    <script>
+        function decodeJWT(token) {
+            const base64Url = token.split('.')[1];
+
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+        document.getElementById('delete-account').addEventListener('click', () => {
+            try {
+                const token = localStorage.getItem('authToken');
+
+                if (!token) {
+                    alert('No authentication token found. Please log in.');
+                    return;
+                }
+
+                const decodedToken = decodeJWT(token);
+                const id = decodedToken.userId;
+                if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+
+                    fetch(`http://localhost:8000/api/v1/user/profile/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Account deleted:', data);
+                            alert('Your account deleted successfully!');
+                        })
+                        .catch(error => {
+                            console.error('Error updating password:', error);
+                            alert('There was an error updating your password. Please try again.');
+                        });
+                } else {
+                    alert('Account deletion canceled.');
+                }
+
+            } catch (error) {
+                console.log("Error in deleting account", error)
+                alert("Error in deleting account")
+            }
+        })
+    </script>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="text-primary"><span class="text-white">Pak</span>Tourism</h1>
+                </a>
+                <p>We offer personalized travel planning, hotel bookings, and guided tours tailored to your preferences
+                    and budget.</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;"></h6>
+                <div class="d-flex justify-content-start">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Travel Planning</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Hotel Booking</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guided Tours</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Travel Packages</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Travel Details</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white-50 mb-2" href="about.html"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                    <a class="text-white-50 mb-2" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact
+                        Us</a>
+                    <a class="text-white-50 mb-2" href="testimonial.html"><i class="fa fa-angle-right mr-2"></i>Privacy
+                        Policy</a>
+                    <a class="text-white-50 mb-2" href="testimonial.html"><i class="fa fa-angle-right mr-2"></i>Terms &
+                        Conditions</a>
+                    <a class="text-white-50 mb-2" href="Booking page"><i class="fa fa-angle-right mr-2"></i>Booking
+                        Information</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, Karachi, Pakistan</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>0315-7477258</p>
+                <p><i class="fa fa-envelope mr-2"></i>info@paktourism.com</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 25px;"
+                            placeholder="Your Email">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-3">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">PakTourism Ventures</a>. All Rights
+                    Reserved.</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <p class="m-0 text-white-50">Designed by <a href="https://htmlcodex.com">Noor Fatima</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        // To Confirm the booking
+
+        // Function to decode a JWT token (Base64 URL decoding)
+        function decodeJWT(token) {
+            const base64Url = token.split('.')[1];
+
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        // Update booking from Cost Calculator Page
+        document.getElementById('confirm-booking').addEventListener('click', function (event) {
+            event.preventDefault();
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                alert('No authentication token found. Please log in.');
+                return;
+            }
+
+            try {
+                const decodedToken = decodeJWT(token);
+                const userId = decodedToken.userId;
+
+                let payload = {
+                    status: "Confirmed",
+                    userId: userId
+                };
+
+                fetch('http://localhost:8000/api/v1/booking/3', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Booking updated successfully:", data);
+                        alert("Booking has been confirmed successfully!");
+                    })
+                    .catch(error => {
+                        console.error("Error updating booking:", error);
+                        alert("There was an error confirming the booking. Please try again.");
+                    });
+
+            } catch (error) {
+                console.log("Booking is not updated", error);
+                alert("Booking is not updated");
+            }
+        })
+    </script>
+
+    <script>
+
+        // To Cancel the booking
+
+        // Function to decode a JWT token (Base64 URL decoding)
+        function decodeJWT(token) {
+            const base64Url = token.split('.')[1];
+
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        // Update booking from Cost Calculator Page
+        document.getElementById('cancel-booking').addEventListener('click', function (event) {
+            event.preventDefault();
+            console.log("object 111hbsahcao; nnn /////")
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                alert('No authentication token found. Please log in.');
+                return;
+            }
+
+            try {
+                const decodedToken = decodeJWT(token);
+                const userId = decodedToken.userId;
+
+                let payload = {
+                    status: "Cancelled",
+                    userId: userId
+                };
+
+                fetch('http://localhost:8000/api/v1/booking/3', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Booking updated successfully:", data);
+                        alert("Booking Cancelled successfully!");
+                    })
+                    .catch(error => {
+                        console.error("Error updating booking:", error);
+                        alert("There was an error confirming the booking. Please try again.");
+                    });
+
+            } catch (error) {
+                console.log("Booking is not updated", error);
+                alert("Booking is not updated");
+            }
+        })
+    </script>
+</body>
+
+</html>

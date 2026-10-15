@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cost Calculator - PakTourism Ventures</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="PakTourism Ventures Cost Calculator" name="keywords">
+    <meta content="Calculate the cost of different travel packages and view quotes" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .booking-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .confirm-booking,
+        .cancel-booking {
+            padding: 1rem 1rem;
+            background-color: green;
+            color: white;
+            border: none;
+            max-width: 12rem;
+        }
+
+        .cancel-booking {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light pt-3 d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center">
+                        <p><i class="fa fa-envelope mr-2"></i>info@paktourism</p>
+                        <p class="text-body px-3">|</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>0315-7477258</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center text-lg-right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="m-0 text-primary"><span class="text-dark">TRAVEL</span>ER</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link active">Cost Calculator</a>
+                        <a href="package.html" class="nav-item nav-link">Travel Packages</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="blog.html" class="dropdown-item">Booking page</a>
+                                <a href="single.html" class="dropdown-item">Dashboard</a>
+                                <a href="destination.html" class="dropdown-item">Itinerary</a>
+                                <a href="testimonial.html" class="dropdown-item">Policy page</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid page-header">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-4 text-white text-uppercase">Cost Calculator</h3>
+                <div class="d-inline-flex text-white">
+                    <p class="m-0 text-uppercase"><a class="text-white" href="index.html">Home</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">Cost Calculator</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Cost Calculator Start -->
+    <div class="container-fluid py-5">
+        <div class="container text-center">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Cost Calculator</h6>
+                <h1>Calculate Your Travel Costs</h1>
+            </div>
+            <form id="costCalculatorForm">
+                <div class="row">
+                    <!-- Selected Package Details -->
+                    <div class="col-md-12 mb-4">
+                        <div class="bg-white text-center p-4 border shadow-sm">
+                            <h4>Selected Package: <span id="selectedPackageName"></span></h4>
+                            <p>Daily Budget: PKR <span id="selectedDailyBudget"></span></p>
+                            <p>Service Fee: PKR <span id="selectedServiceFee"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Inputs -->
+                <div class="row mt-4">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="form-group">
+                            <label for="numDays">Number of Days:</label>
+                            <input type="number" id="numDays" class="form-control" min="1" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numPeople">Number of Travelers:</label>
+                            <input type="number" id="numPeople" class="form-control" min="1" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="extraServices">Additional Services:</label>
+                            <select id="extraServices" class="form-control">
+                                <option value="0">No Extra Services</option>
+                                <option value="2000">Airport Pickup - PKR 2,000</option>
+                                <option value="4000">Guided Tour - PKR 4,000</option>
+                                <option value="6000">VIP Concierge - PKR 6,000</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg mt-3">Calculate Total Cost</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Total Cost Display -->
+            <div class="mt-4">
+                <h3>Total Cost: PKR <span id="totalCost">0</span></h3>
+            </div>
+            <div class="booking-buttons">
+                <button class="confirm-booking">Confirm Booking</button>
+                <button class="cancel-booking">Cancel Booking</button>
+            </div>
+        </div>
+    </div>
+    <!-- Cost Calculator End -->
+
+    <script>
+        // JavaScript for Cost Calculator Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Retrieve query parameters from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedPackage = urlParams.get('packageType');
+            const packages = {
+                basic: { name: "Basic Travel Package", dailyBudget: 5000, serviceFee: 500 },
+                premium: { name: "Premium Travel Package", dailyBudget: 10000, serviceFee: 1000 },
+                luxury: { name: "Luxury Travel Package", dailyBudget: 20000, serviceFee: 2500 },
+            };
+
+            // Validate the selected package
+            if (!packages[selectedPackage]) {
+                alert('No package selected. Returning to the booking page. Please select a package first.');
+                window.location.href = 'blog.html';
+                return;
+            }
+
+            // Display selected package details
+            const selectedDetails = packages[selectedPackage];
+            document.getElementById('selectedPackageName').textContent = selectedDetails.name;
+            document.getElementById('selectedDailyBudget').textContent = selectedDetails.dailyBudget.toLocaleString('en-PK');
+            document.getElementById('selectedServiceFee').textContent = selectedDetails.serviceFee.toLocaleString('en-PK');
+
+            // Handle cost calculation
+            document.getElementById('costCalculatorForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Get input values
+                const numDays = parseInt(document.getElementById('numDays').value, 10);
+                const numPeople = parseInt(document.getElementById('numPeople').value, 10);
+                const extraServicesCost = parseInt(document.getElementById('extraServices').value, 10);
+
+                // Calculate total cost
+                const totalCost = (selectedDetails.dailyBudget * numDays + selectedDetails.serviceFee + extraServicesCost) * numPeople;
+
+                // Display the total cost
+                document.getElementById('totalCost').textContent = totalCost.toLocaleString('en-PK');
+            });
+        });
+    </script>
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h6>
+                <h1>What Say Our Clients</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="text-center pb-4">
+                    <img class="img-fluid mx-auto" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                        <p class="mt-5">"The personalized travel plan I received was beyond my expectations! The system
+                            recommended the perfect travel package for my budget and preferences, making my trip
+                            unforgettable. Highly recommend!"
+                        </p>
+                        <h5 class="text-truncate">John Smith</h5>
+                        <span>Frequent Traveler</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                        <p class="mt-5">"The booking process was so smooth! I was able to get the best rates and make my
+                            travel plans without any hassle. The travel package suggestions were on point!"
+                        </p>
+                        <h5 class="text-truncate">Sarah Khan</h5>
+                        <span>Business Traveler</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img class="img-fluid mx-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                        <p class="mt-5">"I loved how easy it was to calculate the cost of my trip using the new system.
+                            It helped me stay within my budget while still offering me luxury travel options. A
+                            game-changer!"
+                        </p>
+                        <h5 class="text-truncate">Ayub Sheikh</h5>
+                        <span>Leisure Traveler</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img class="img-fluid mx-auto" src="img/testimonial-4.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                        <p class="mt-5">"Thanks to the system's easy-to-use interface and detailed quotes, I found the
+                            best travel package for my family vacation. I was also able to track our itinerary
+                            seamlessly!"
+                        </p>
+                        <h5 class="text-truncate">Ali Hassan</h5>
+                        <span>Family Traveler</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="text-primary"><span class="text-white">Pak</span>Tourism</h1>
+                </a>
+                <p>We offer personalized travel planning, hotel bookings, and guided tours tailored to your preferences
+                    and budget.</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;"></h6>
+                <div class="d-flex justify-content-start">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Travel Planning</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Hotel Booking</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guided Tours</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Travel Packages</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Travel Details</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white-50 mb-2" href="about.html"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                    <a class="text-white-50 mb-2" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                    <a class="text-white-50 mb-2" href="testimonial.html"><i class="fa fa-angle-right mr-2"></i>Privacy Policy</a>
+                    <a class="text-white-50 mb-2" href="testimonial.html"><i class="fa fa-angle-right mr-2"></i>Terms & Conditions</a>
+                    <a class="text-white-50 mb-2" href="Booking page"><i class="fa fa-angle-right mr-2"></i>Booking Information</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, Karachi, Pakistan</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>0315-7477258</p>
+                <p><i class="fa fa-envelope mr-2"></i>info@paktourism.com</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 25px;"
+                            placeholder="Your Email">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-3">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">PakTourism Ventures</a>. All Rights
+                    Reserved.</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <p class="m-0 text-white-50">Designed by <a href="https://htmlcodex.com">Noor Fatima</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        // To Confirm the booking
+
+        // Function to decode a JWT token (Base64 URL decoding)
+        function decodeJWT(token) {
+            const base64Url = token.split('.')[1];
+
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        // Update booking from Cost Calculator Page
+        document.querySelector('.confirm-booking').addEventListener('click', function (event) {
+            event.preventDefault();
+            console.log("object 111hbsahcao;/////")
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                alert('No authentication token found. Please log in.');
+                return;
+            }
+
+            try {
+                const decodedToken = decodeJWT(token);
+                const userId = decodedToken.userId;
+
+                let payload = {
+                    status: "Confirmed",
+                    userId: userId
+                };
+
+                fetch('http://localhost:8000/api/v1/booking/3', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Booking updated successfully:", data);
+                        alert("Booking has been confirmed successfully!");
+                    })
+                    .catch(error => {
+                        console.error("Error updating booking:", error);
+                        alert("There was an error confirming the booking. Please try again.");
+                    });
+
+            } catch (error) {
+                console.log("Booking is not updated", error);
+                alert("Booking is not updated");
+            }
+        })
+    </script>
+
+    <script>
+
+        // To Cancel the booking
+
+        // Function to decode a JWT token (Base64 URL decoding)
+        function decodeJWT(token) {
+            const base64Url = token.split('.')[1];
+
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        // Update booking from Cost Calculator Page
+        document.querySelector('.cancel-booking').addEventListener('click', function (event) {
+            event.preventDefault();
+            console.log("object 111hbsahcao; nnn /////")
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                alert('No authentication token found. Please log in.');
+                return;
+            }
+
+            try {
+                const decodedToken = decodeJWT(token);
+                const userId = decodedToken.userId;
+
+                let payload = {
+                    status: "Cancelled",
+                    userId: userId
+                };
+
+                fetch('http://localhost:8000/api/v1/booking/3', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Booking updated successfully:", data);
+                        alert("Booking Cancelled successfully!");
+                    })
+                    .catch(error => {
+                        console.error("Error updating booking:", error);
+                        alert("There was an error confirming the booking. Please try again.");
+                    });
+
+            } catch (error) {
+                console.log("Booking is not updated", error);
+                alert("Booking is not updated");
+            }
+        })
+    </script>
+</body>
+
+</html>
